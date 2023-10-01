@@ -14,8 +14,10 @@ public class HomeWorkMain {
            String string;
             while ((string = br.readLine()) != null){
                 resStr.append(string).append("\n");
-
-            }
+            }/*  вместо метода  .append("\n"); перенос на новую строку можно сделать
+                   resStr.append(System.lineSeparator()) -  перевод на новую строку
+                   .newLine()
+           */
 
 
         }catch (IOException e){

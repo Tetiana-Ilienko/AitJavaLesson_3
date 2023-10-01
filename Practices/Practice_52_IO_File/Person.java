@@ -1,29 +1,37 @@
 public class Person {
 
     private String name;
-
-
-
     private int age;
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
 
+
+
+ // пишем конструктор, который  проверяет правильность формата строки personString, извлекает из неё имя и возраст,
+ // и создает объект Person. Если формат неверный или возникает ошибка при преобразовании возраста, то выбрасывается
+ // исключение PersonCreateException, что указывает на проблему при создании объекта Person.
     public Person(String personString){
-        String[] personData = personString.split(",");
-        if(personData.length<2){
+        String[] personData = personString.split(",");// В этой строке строка personString разбивается
+        // на подстроки, используя запятую (,) в качестве разделителя. Результатом является массив строк personData,
+        // который должен содержать два элемента: имя и возраст. Если строка не содержит два элемента
+        // (т.е., разделитель , не найден), это означает некорректный формат входных данных.
+        if(personData.length<2){ // Здесь проверяется длина массива personData. Если длина меньше двух, это означает,
+            // что входные данные некорректны и не удовлетворяют ожидаемому формату. В этом случае создается исключение
+            // PersonCreateException и выбрасывается.
             throw new PersonCreateException();
         }else {
             try{
-            this.age = Integer.parseInt(personData[1]);
-            this.name = personData[0];
-        }catch (Exception e){
+            this.age = Integer.parseInt(personData[1]);// Если длина массива personData равна двум, то это предполагает,
+                // что второй элемент массива содержит возраст в виде строки. Мы используем метод Integer.parseInt()
+                // для преобразования этой строки в целое число и присваиваем его полю age объекта Person.
+            this.name = personData[0];//  Первый элемент массива personData представляет имя, и его значение
+                // присваивается полю name объекта Person
+        }catch (Exception e){ //Если формат неверный или возникает ошибка при преобразовании возраста, то выбрасывается
+                // исключение PersonCreateException, что указывает на проблему при создании объекта Person
                 throw new PersonCreateException();
             }
         }
+           }
 
-    }
+
 
     @Override
     public String toString() {

@@ -1,8 +1,13 @@
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+/*
+ есть файл "output.txt" записать в список хранящуюся там информацию
+ */
+
 
 public class Main_52 {
     public static void main(String[] args) {
@@ -46,4 +51,13 @@ public class Main_52 {
             throw new RuntimeException(e);
         }
     }
+
+
+
+
+
+
+
+
+
 }

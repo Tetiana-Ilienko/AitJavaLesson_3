@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class Main_Bafferd_Read_Write {
+public class Main_Buffered_Reader_Write {
     /*
         BufferedReader
         BufferedWriter
