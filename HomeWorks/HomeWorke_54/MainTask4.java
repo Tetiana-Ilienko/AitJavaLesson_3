@@ -1,9 +1,6 @@
 import Task_3.Person;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,41 +12,25 @@ public class MainTask4 {
       класса Person в виде строк и одновременно выводящий их на экран
      */
 
-    public static void readPerson(String fileName, Person person) {
-        try (BufferedWriter br = new BufferedWriter(new FileWriter(fileName, true))) {
-            String str = person.toString();
-            br.write(str);
-            br.write(";");
-            br.newLine();
-            br.flush();
-            System.out.println(str);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    /*
-    переопределенный toString (import ; \\ Lesson_54\\Task_3.Person)
-     @Override
-    public String toString() {
-        return name+","+age;
-    }
 
 
-     */
+
+
 
     // перегрузка
-    public static void readPerson1(String fileName, List<Person> persons) {
-        try (BufferedWriter br = new BufferedWriter(new FileWriter(fileName))) {
+    public static void readPerson(String fileName, List<Person> persons) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+        BufferedWriter bw1 = new BufferedWriter(new OutputStreamWriter(System.out)) ) //  для вывода на экран
+                                                   // OutputStreamWriter() - пишет информацию в выходной поток
+         {
             for (Person person : persons) {
-               String str = person.toString();
-                br.write(str);
-                br.write(";");
-                br.newLine();
-                br.flush();
-                System.out.println(str);
+                bw.write("\"" + person.getName() + "\"" + "," + person.getAge() );
+                bw1.write("\"" + person.getName() + "\"" + "," + person.getAge() );
+                bw.newLine();
+                bw1.newLine();
             }
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+           e.printStackTrace();
         }
     }
 
@@ -67,11 +48,7 @@ public class MainTask4 {
 //        System.out.println(persons);
 
 
-//        readPerson("person.txt", person);
-//        readPerson("person.txt", person1);
-//        readPerson("person.txt", person2);
-
-        readPerson1("person.txt", persons);
+      readPerson("person.txt", persons);
 
 
     }

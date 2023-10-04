@@ -11,9 +11,17 @@ public class Person implements Comparable<Person>{
         this.age = age;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     @Override
     public String toString() {
-        return name+","+age;
+        return name+" , "+age;
     }
 
     @Override

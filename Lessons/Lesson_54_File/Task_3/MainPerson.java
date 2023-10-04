@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -43,7 +43,7 @@ public class MainPerson {
             int age = Integer.parseInt(nameAge[1].trim());// в первой ячейки храниться возраст
             // переводим строку в int, если есть лишние пробелы - мы их убираем .trim()
             if (age > 18) { // если персоне >18
-                persons.add(new Person(nameAge[0], age));// добавляем ее в наш результирующий лист
+                persons.add(new Person(nameAge[0].trim(), age));// добавляем ее в наш результирующий лист
                 // (new Person(nameAge[0],age ) - конструктор
 
             }
@@ -53,6 +53,12 @@ public class MainPerson {
 
         return persons;
 
+
+    }
+
+    public static void main(String[] args) {
+
+        System.out.println(over18Years(new File("classPerson.txt")));
 
     }
 
