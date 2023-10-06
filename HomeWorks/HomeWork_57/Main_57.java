@@ -50,7 +50,7 @@ public class Main_57 {
 
         // 7. возвращает  "Hello World"
 
-        Supplier<String> sup = () -> "Ich wunsche dir einen schönen Tag!";
+        Supplier<String> sup = () -> "Hello World";
         System.out.println(sup.get());
 
     }
