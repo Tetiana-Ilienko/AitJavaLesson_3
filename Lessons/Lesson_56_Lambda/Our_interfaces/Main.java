@@ -39,6 +39,5 @@ public class Main {
         Producable prod = () -> "Hello World";
         System.out.println(prod.produce());
 
-
     }
 }
