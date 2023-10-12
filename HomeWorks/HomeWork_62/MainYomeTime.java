@@ -6,19 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MainYomeTime {
-    /*
 
-
-
-
-
-
-
-   7. Создать дату, которая была на год раньше сегодняшней используя метод minus
-
-   9. Создать даты tomorrow и yesterday и проверить находятся ли они до или после сегодняшней
-
-     */
 
     public static void main(String[] args) {
 
