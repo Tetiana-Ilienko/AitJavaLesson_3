@@ -180,27 +180,34 @@ LocalDate minusYears(int n): отнимает от даты некоторое �
         ChronoUnit.SECONDS.between(initTime,newTime);
 
 
-        // форматирование даты и времени  DateTimeFormatter
+//  ***********       форматирование даты и времени  DateTimeFormatter **********
+
         LocalDateTime dateTime = LocalDateTime.now();
         System.out.println(dateTime);
 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.BASIC_ISO_DATE;
         String formatted = dateTimeFormatter.format(dateTime);
-        System.out.println("Formatted with Basic ISO date format string is " + formatted);
+        System.out.println("Formatted with Basic ISO date format string is " + formatted); // 20231015
 
         DateTimeFormatter dateTimeFormatter1 = DateTimeFormatter.ISO_LOCAL_DATE;
         String formatted1 = dateTimeFormatter1.format(dateTime);
-        System.out.println("Formatted with ISO local date format string is " + formatted1);
+        System.out.println("Formatted with ISO local date format string is " + formatted1); // 2023-10-15
 
         DateTimeFormatter dateTimeFormatter2 = DateTimeFormatter.ISO_LOCAL_DATE_TIME;
         String formatted2 = dateTimeFormatter2.format(dateTime);
-        System.out.println("Formatted with ISO local date time format string is " + formatted2);
+        System.out.println("Formatted with ISO local date time format string is " + formatted2); // 2023-10-15T22:16:17.5774062
 
         // "2023/10/12 12:42:30 - представление текущего времени преобразовать к такому формату
         DateTimeFormatter ourFormatter = DateTimeFormatter.ofPattern("yyyy/MMMM/dd HH:mm:ss");
         dateTime = LocalDateTime.now();
+
+        //  преобразование даты в строку
         String res = ourFormatter.format(dateTime);
         System.out.println("DateTime formatted with our formatter: " + res);
+
+        // преобразование строки в дату
+        LocalDateTime localDateTime2 = LocalDateTime.parse(res,ourFormatter);
+        System.out.println("dateTime type; " + localDateTime2); // dateTime type; 2023-10-15T22:22:02 
 
         /*
         y - year
@@ -221,4 +228,8 @@ LocalDate minusYears(int n): отнимает от даты некоторое �
         E,MMM dd yyyy  "Thu,Oct 12 2023
         h:mm a 12:58 PM
          */
-}}
+
+
+
+}
+}
